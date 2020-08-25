@@ -322,26 +322,26 @@
 *       We first rotate by \mu about the x-axis, then by \omega
 *       about the z-axis.
 *       We do this when the system has already had one SN (sn=2)
-*  NOTE: This prescription does not account for realignment between SNe!
-      if(sn.eq.2)then
-        cmu = COS(kick_info(1,15)*pi/180)
-        smu = SIN(kick_info(1,15)*pi/180)
-        comega = COS(kick_info(1,16)*pi/180)
-        somega = SIN(kick_info(1,16)*pi/180)
-
-        x_tilt = ctheta*cphi*comega + smu*sphi*somega -
-     &                   cmu*cphi*stheta*somega
-        y_tilt = cmu*cphi*comega*stheta + ctheta*cphi*somega -
-     &                   comega*smu*sphi
-        z_tilt = cmu*sphi + cphi*smu*stheta
-
-        phi = ASIN(z_tilt)
-        sphi = z_tilt
-        cphi = COS(phi)
-        theta = ATAN(y_tilt/x_tilt)
-        stheta = SIN(theta)
-        ctheta = COS(theta)
-      endif
+*  NOTE: This prescription does not account for realignment between SNe
+C      if(sn.eq.2)then
+C        cmu = COS(kick_info(1,15)*pi/180)
+C        smu = SIN(kick_info(1,15)*pi/180)
+C        comega = COS(kick_info(1,16)*pi/180)
+C        somega = SIN(kick_info(1,16)*pi/180)
+C
+C        x_tilt = ctheta*cphi*comega + smu*sphi*somega -
+C     &                   cmu*cphi*stheta*somega
+C        y_tilt = cmu*cphi*comega*stheta + ctheta*cphi*somega -
+C     &                   comega*smu*sphi
+C        z_tilt = cmu*sphi + cphi*smu*stheta
+C
+C        phi = ASIN(z_tilt)
+C        sphi = z_tilt
+C        cphi = COS(phi)
+C        theta = ATAN(y_tilt/x_tilt)
+C        stheta = SIN(theta)
+C        ctheta = COS(theta)
+C      endif
 
       if(sep.le.0.d0.or.ecc.lt.0.d0) goto 90
 
