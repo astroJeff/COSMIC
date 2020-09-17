@@ -1013,7 +1013,31 @@ GR ORBITAL DECAY FLAG
                             ``>0`` : assumes that the lost material takes away a
                             fraction *gamma* of the orbital angular momentum
 
-                         **gamma = -2.0**
+                         **gamma = -1.0**
+
+``don_lim``              Model for how mass lost from the donor is limited
+                         by thermal or dynamical timescales
+
+                            ``0`` : consistent with `Hurley+2002 <https://ui.adsabs.harvard.edu/abs/2002MNRAS.329..897H/abstract>`_
+
+                            ``-1`` : increases mass loss rate by factor
+                            given in Eq. 11 of `Claeys+2014 <https://ui.adsabs.harvard.edu/abs/2014A%26A...563A..83C/abstract>`_
+                         **don_lim = -1**
+
+``acc_lim``              Model for how mass lost from the donor is accreted
+                            ``0`` : dm_acc as min(1, 10*(m_don*porb/dm_don) / t_therm_acc))
+
+                            ``-1`` : dm_acc as min(1, 10*(t_therm_don / t_therm_acc))
+
+                            ``-2`` : dm_acc as min(1, (t_therm_don / t_therm_acc))
+
+                         **acc_lim = -1**
+
+``f_acc``                Fraction of mass lost from donor that is accepted by
+                         the accretor **after** the don_lim and ``don_lim`` and
+                         ``acc_lim`` models are applied
+
+                         **f_acc**
 =======================  =====================================================
 
 .. code-block:: ini
